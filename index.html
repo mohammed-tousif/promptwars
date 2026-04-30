@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoteWise – Your Election Guide Assistant</title>
+  <meta name="description" content="An interactive AI assistant that helps citizens understand the election process, timelines, voter registration, and every step to make your vote count." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=2" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="logo-icon">🗳️</span>
+        <span class="logo-text">Vote<strong>Wise</strong></span>
+      </div>
+      <div class="nav-links">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#faqs">FAQs</a>
+        <a href="#chat" class="nav-cta">Ask the Assistant</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span> AI-Powered Civic Guide
+      </div>
+      <h1 class="hero-title">
+        Your Vote Matters.<br />
+        <span class="gradient-text">We'll Show You How.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Understand the election process from registration to results — with an interactive AI assistant that answers your questions in simple, clear language.
+      </p>
+      <div class="hero-actions">
+        <a href="#chat" class="btn btn-primary">
+          <span>💬</span> Ask the Assistant
+        </a>
+        <a href="#timeline" class="btn btn-ghost">
+          <span>📅</span> View Timeline
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>8</strong><span>Election Steps</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><strong>50+</strong><span>Common Questions</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><strong>AI</strong><span>Powered Answers</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="ballot-card">
+        <div class="ballot-header">Official Ballot</div>
+        <div class="ballot-item active"><span class="check">✓</span> Registered</div>
+        <div class="ballot-item"><span class="num">2</span> Choose Candidate</div>
+        <div class="ballot-item"><span class="num">3</span> Submit Ballot</div>
+        <div class="ballot-pulse"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div class="section-label">The Process</div>
+      <h2 class="section-title">How Elections Work</h2>
+      <p class="section-sub">From announcement to results — every step explained simply.</p>
+      <div class="steps-grid">
+        <div class="step-card" data-step="1">
+          <div class="step-icon">📢</div>
+          <div class="step-number">01</div>
+          <h3>Election Announced</h3>
+          <p>The Election Commission officially announces the election schedule, including dates for voting, model code of conduct, and deadlines.</p>
+        </div>
+        <div class="step-card" data-step="2">
+          <div class="step-icon">📋</div>
+          <div class="step-number">02</div>
+          <h3>Voter Registration</h3>
+          <p>Citizens verify or update their voter registration. New voters can enroll via Form 6. Rolls are published and corrections accepted.</p>
+        </div>
+        <div class="step-card" data-step="3">
+          <div class="step-icon">🏛️</div>
+          <div class="step-number">03</div>
+          <h3>Candidate Nomination</h3>
+          <p>Candidates file nomination papers, pay security deposits, and submit affidavits. Scrutiny and withdrawal windows follow.</p>
+        </div>
+        <div class="step-card" data-step="4">
+          <div class="step-icon">📣</div>
+          <div class="step-number">04</div>
+          <h3>Campaign Period</h3>
+          <p>Parties and candidates campaign, hold rallies, and broadcast manifesto pledges — all under the Model Code of Conduct.</p>
+        </div>
+        <div class="step-card" data-step="5">
+          <div class="step-icon">🗳️</div>
+          <div class="step-number">05</div>
+          <h3>Polling Day</h3>
+          <p>Voters visit booths with valid ID, biometrically verify identity, and cast votes on EVMs. Mock polls run in the morning.</p>
+        </div>
+        <div class="step-card" data-step="6">
+          <div class="step-icon">📦</div>
+          <div class="step-number">06</div>
+          <h3>EVM Sealing & Storage</h3>
+          <p>After voting, EVMs are sealed and stored in strong rooms under 24/7 CCTV surveillance until counting day.</p>
+        </div>
+        <div class="step-card" data-step="7">
+          <div class="step-icon">🔢</div>
+          <div class="step-number">07</div>
+          <h3>Vote Counting</h3>
+          <p>Counting agents from all parties watch as votes are tallied round by round. Results are announced per constituency.</p>
+        </div>
+        <div class="step-card" data-step="8">
+          <div class="step-icon">🏆</div>
+          <div class="step-number">08</div>
+          <h3>Results & Oath</h3>
+          <p>Winners receive certificates. Parties negotiate coalition if no majority. Elected representatives are sworn in by the President/Governor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TIMELINE ===== -->
+  <section class="section section-dark" id="timeline">
+    <div class="container">
+      <div class="section-label">Key Dates</div>
+      <h2 class="section-title">Election Timeline</h2>
+      <p class="section-sub">A typical general election spans about 60–90 days from announcement to results.</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-day">Day 0</div>
+            <h4>Election Announcement</h4>
+            <p>Model Code of Conduct kicks in immediately. Election Commission announces full schedule.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-day">Day 1 – 15</div>
+            <h4>Voter List Finalisation</h4>
+            <p>Last date to register or update voter details. Special Summary Revision completed.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-day">Day 15 – 25</div>
+            <h4>Nomination Window</h4>
+            <p>Candidates file nominations, submit affidavits, and pay security deposits at Returning Officer offices.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-day">Day 25 – 26</div>
+            <h4>Scrutiny & Withdrawal</h4>
+            <p>Nominations scrutinised for validity. Two-day withdrawal window for candidates to pull out.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-day">Day 27 – 57</div>
+            <h4>Campaign Period</h4>
+            <p>Rallies, road shows, media campaigns. Campaign ends 48 hours before polling (silent period).</p>
+          </div>
+        </div>
+        <div class="tl-item tl-highlight">
+          <div class="tl-dot tl-dot-star">⭐</div>
+          <div class="tl-content">
+            <div class="tl-day">Day 60</div>
+            <h4>Polling Day 🗳️</h4>
+            <p>Voters cast ballots from 7 AM – 6 PM. Mock poll at 6 AM. VVPAT slips verify each vote.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-day">Day 63 – 75</div>
+            <h4>EVM Strong Room</h4>
+            <p>Sealed EVMs stored under multi-layer security pending counting date set by ECI.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-dot-end"></div>
+          <div class="tl-content">
+            <div class="tl-day">Day 75+</div>
+            <h4>Counting & Results</h4>
+            <p>Votes counted from 8 AM. Winners declared, certificates issued, government formation begins.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VOTER GUIDE ===== -->
+  <section class="section" id="voter-guide">
+    <div class="container">
+      <div class="section-label">For Voters</div>
+      <h2 class="section-title">Voter's Quick Guide</h2>
+      <div class="guide-cards">
+        <div class="guide-card">
+          <div class="guide-icon">🪪</div>
+          <h3>Valid ID at Polls</h3>
+          <ul>
+            <li>Voter ID Card (EPIC)</li>
+            <li>Aadhaar Card</li>
+            <li>Passport</li>
+            <li>Driving Licence</li>
+            <li>PAN Card</li>
+            <li>MNREGA Job Card</li>
+          </ul>
+        </div>
+        <div class="guide-card">
+          <div class="guide-icon">📝</div>
+          <h3>How to Register</h3>
+          <ul>
+            <li>Visit <strong>voters.eci.gov.in</strong></li>
+            <li>Fill Form 6 (new voters)</li>
+            <li>Upload documents online</li>
+            <li>Track application status</li>
+            <li>Receive e-EPIC card</li>
+          </ul>
+        </div>
+        <div class="guide-card">
+          <div class="guide-icon">🗳️</div>
+          <h3>At the Polling Booth</h3>
+          <ul>
+            <li>Carry your Voter Slip + ID</li>
+            <li>Queue as per serial number</li>
+            <li>Biometric verification</li>
+            <li>Press EVM button for candidate</li>
+            <li>Verify VVPAT slip (7 seconds)</li>
+          </ul>
+        </div>
+        <div class="guide-card">
+          <div class="guide-icon">🚫</div>
+          <h3>What NOT to Do</h3>
+          <ul>
+            <li>No mobile phones inside booth</li>
+            <li>No impersonation</li>
+            <li>No campaigning in 100m radius</li>
+            <li>No alcohol on polling day</li>
+            <li>Don't accept money/gifts</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQs ===== -->
+  <section class="section section-dark" id="faqs">
+    <div class="container">
+      <div class="section-label">Common Questions</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-list" id="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">
+            What is the minimum age to vote in India?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>You must be <strong>18 years of age</strong> on or before the qualifying date (January 1st of the election year) to be eligible to vote. You also need to be a citizen of India and ordinarily resident in the constituency.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">
+            What is an EVM and is it secure?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>An <strong>Electronic Voting Machine (EVM)</strong> is a standalone device that records votes electronically. It is not connected to any network, making it hack-proof. VVPAT (Voter Verifiable Paper Audit Trail) machines print a paper slip that allows voters to verify their vote was recorded correctly.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">
+            What is the Model Code of Conduct?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>The <strong>Model Code of Conduct (MCC)</strong> is a set of guidelines issued by the Election Commission to regulate the conduct of political parties and candidates during election campaigns. It comes into force immediately after the announcement of elections and remains in effect till results are declared. It prohibits misuse of government resources, hate speech, and bribery.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">
+            Can I vote if I am away from my constituency?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>You must vote in the constituency where you are registered. However, the ECI allows <strong>remote voting</strong> for migrant workers under new pilot programs. You can also apply for an <strong>absentee ballot</strong> if you are a senior citizen (85+), disabled, or an essential services worker.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">
+            What is NOTA?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p><strong>NOTA (None of the Above)</strong> is a ballot option that allows voters to formally reject all candidates on the ballot. It was introduced by the Supreme Court of India in 2013. If NOTA gets the highest votes, the candidate with the next highest votes wins (NOTA does not invalidate the election).</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">
+            How are election results certified?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>The <strong>Returning Officer</strong> of each constituency declares the result and issues a certificate of election to the winning candidate. The results are officially notified in the Gazette of India. For disputes, candidates can file an <strong>election petition</strong> in the High Court within 45 days.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AI CHAT ===== -->
+  <section class="section" id="chat">
+    <div class="container">
+      <div class="section-label">AI Assistant</div>
+      <h2 class="section-title">Ask VoteWise</h2>
+      <p class="section-sub">Have a question about elections? Ask our AI-powered assistant below.</p>
+      <div class="chat-container">
+        <div class="chat-header">
+          <div class="chat-avatar">🤖</div>
+          <div>
+            <div class="chat-name">VoteWise Assistant</div>
+            <div class="chat-status"><span class="status-dot"></span> Online</div>
+          </div>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+          <div class="msg msg-bot">
+            <div class="msg-bubble">
+              👋 Hi! I'm <strong>VoteWise</strong>, your election guide assistant. Ask me anything about voter registration, how EVMs work, election timelines, candidate nominations, or how to cast your vote. What would you like to know?
+            </div>
+            <div class="msg-time">Just now</div>
+          </div>
+        </div>
+        <div class="chat-suggestions" id="chat-suggestions">
+          <button class="suggestion-chip" onclick="sendSuggestion(this)">How do I register to vote?</button>
+          <button class="suggestion-chip" onclick="sendSuggestion(this)">What ID do I need at the booth?</button>
+          <button class="suggestion-chip" onclick="sendSuggestion(this)">Explain how EVMs work</button>
+          <button class="suggestion-chip" onclick="sendSuggestion(this)">What is NOTA?</button>
+          <button class="suggestion-chip" onclick="sendSuggestion(this)">When does campaigning stop?</button>
+          <button class="suggestion-chip" onclick="sendSuggestion(this)">How are votes counted?</button>
+        </div>
+        <div class="chat-input-bar">
+          <input type="text" id="chat-input" class="chat-input" placeholder="Ask about elections, voting, candidates…" autocomplete="off" />
+          <button class="chat-send" id="chat-send" onclick="sendMessage()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <span class="logo-icon">🗳️</span>
+            <span class="logo-text">Vote<strong>Wise</strong></span>
+          </div>
+          <p>Empowering citizens with clear, accurate information about democratic elections.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="https://www.eci.gov.in" target="_blank" rel="noopener">Election Commission of India</a>
+          <a href="https://voters.eci.gov.in" target="_blank" rel="noopener">Voter Registration Portal</a>
+          <a href="#how-it-works">How Elections Work</a>
+          <a href="#timeline">Election Timeline</a>
+        </div>
+        <div class="footer-links">
+          <h4>Navigate</h4>
+          <a href="#hero">Home</a>
+          <a href="#faqs">FAQs</a>
+          <a href="#voter-guide">Voter Guide</a>
+          <a href="#chat">AI Assistant</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Built for educational purposes. Always verify with official Election Commission sources.</p>
+        <p>© 2026 VoteWise. Made with ❤️ for democracy.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js?v=2"></script>
+</body>
+</html>
