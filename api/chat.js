@@ -1,18 +1,33 @@
 // Vercel Serverless Function — proxies requests to Groq
-// The GROQ_API_KEY is stored as a Vercel Environment Variable (never in code)
+// GROQ_API_KEY is set in Vercel Dashboard → Settings → Environment Variables
+// It is NEVER stored in the source code or repository.
 
-export default async function handler(req, res) {
-  // Only allow POST
+module.exports = async function handler(req, res) {
+  // CORS headers (allows browser to call this endpoint)
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) {
-    return res.status(500).json({ error: 'API key not configured on server.' });
+    return res.status(500).json({
+      error: 'GROQ_API_KEY environment variable is not set. Please add it in Vercel Dashboard → Settings → Environment Variables.'
+    });
   }
 
   const { messages, model } = req.body;
+
+  if (!messages || !Array.isArray(messages)) {
+    return res.status(400).json({ error: 'Invalid request: messages array required.' });
+  }
 
   try {
     const groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
@@ -35,4 +50,4 @@ export default async function handler(req, res) {
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }
-}
+};
