@@ -54,14 +54,13 @@ document.querySelectorAll('.step-card, .guide-card, .tl-item, .faq-item').forEac
   observer.observe(el);
 });
 
-/* ===== GROQ API CONFIG ===== */
-const GROQ_API_KEY = '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';
-const GROQ_ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
-// Fallback chain: if one model hits rate limit, try the next
+/* ===== AI PROXY CONFIG ===== */
+// No API keys here — the key lives in Vercel Environment Variables.
+// Requests go to /api/chat (a serverless function that calls Groq securely).
 const GROQ_MODELS = [
-  'llama-3.3-70b-versatile',   // Best quality
-  'llama-3.1-8b-instant',      // Fastest fallback
-  'gemma2-9b-it',              // Last resort
+  'llama-3.3-70b-versatile',
+  'llama-3.1-8b-instant',
+  'gemma2-9b-it',
 ];
 
 const SYSTEM_PROMPT = `You are VoteWise, a friendly and knowledgeable AI assistant specializing in helping citizens understand the democratic election process — primarily focused on Indian elections but covering general democratic principles too.
@@ -79,11 +78,10 @@ Your role:
 - Never express personal political opinions or favor any party or candidate
 - Helpline number: 1950 | Voter portal: voters.eci.gov.in`;
 
-// OpenAI-compatible message history (role + content string)
+// OpenAI-compatible message history
 const conversationHistory = [];
 
 async function callAI(userMessage) {
-  // Add user message to history
   conversationHistory.push({ role: 'user', content: userMessage });
 
   const messages = [
@@ -95,25 +93,15 @@ async function callAI(userMessage) {
 
   for (const model of GROQ_MODELS) {
     try {
-      const response = await fetch(GROQ_ENDPOINT, {
+      const response = await fetch('/api/chat', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${GROQ_API_KEY}`
-        },
-        body: JSON.stringify({
-          model,
-          messages,
-          max_tokens: 800,
-          temperature: 0.7,
-          top_p: 0.9
-        })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages, model })
       });
 
       if (!response.ok) {
         const err = await response.json();
-        const msg = err?.error?.message || 'Unknown error';
-        // Rate limit → try next model
+        const msg = err?.error?.message || err?.error || 'Unknown error';
         if (response.status === 429 || msg.toLowerCase().includes('rate limit')) {
           lastError = new Error(`Rate limit on ${model}`);
           continue;
@@ -125,7 +113,6 @@ async function callAI(userMessage) {
       const assistantText = data.choices?.[0]?.message?.content
         || 'Sorry, I could not generate a response.';
 
-      // Save to history for multi-turn context
       conversationHistory.push({ role: 'assistant', content: assistantText });
       return assistantText;
 
@@ -138,7 +125,6 @@ async function callAI(userMessage) {
     }
   }
 
-  // All models rate-limited
   conversationHistory.pop();
   throw new Error('All models are currently rate-limited. Please try again in a moment.');
 }
